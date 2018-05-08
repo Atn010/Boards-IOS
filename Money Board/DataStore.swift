@@ -26,6 +26,8 @@ class DataStore: NSObject {
         mainBoardText.append("Sample 3")
 
     }
+    var subBoardPageTitle = ""
+    
     var isJustSample = true
     var mainBoardImage: [UIImage]
     var mainBoardText: [String]

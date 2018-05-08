@@ -9,7 +9,8 @@
 import UIKit
 
 class SubBoardTVC: UITableViewController {
-
+    @IBOutlet weak var navigationTitle: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

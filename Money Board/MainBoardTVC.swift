@@ -56,6 +56,28 @@ class MainBoardTVC: UITableViewController {
         return cell
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /*
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let vc = segue.destination as? SubBoardTVC
+            //vc?.navigationTitle.title = Data.mainBoardText[indexPath.row]
+            
+            print("Now Preparing For Segue For \(Data.mainBoardText[indexPath.row]) - \(indexPath.row)")
+            vc?.navigationItem.title = Data.mainBoardText[indexPath.row]
+        }
+        */
+        
+       Data.subBoardPageTitle = Data.mainBoardText[indexPath.row]
+        
+         print("Now Preparing For Segue For \(Data.mainBoardText[indexPath.row]) - \(indexPath.row)")
+        
+        performSegue(withIdentifier: "toSubBoard", sender: self)
+    }
+    
+    
+    
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
