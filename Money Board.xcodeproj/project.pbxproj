@@ -8,19 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		FB10A63820A1829000912B05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A63720A1829000912B05 /* AppDelegate.swift */; };
-		FB10A63A20A1829000912B05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A63920A1829000912B05 /* ViewController.swift */; };
+		FB10A63A20A1829000912B05 /* SplashPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A63920A1829000912B05 /* SplashPageVC.swift */; };
 		FB10A63D20A1829000912B05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB10A63B20A1829000912B05 /* Main.storyboard */; };
 		FB10A63F20A1829100912B05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB10A63E20A1829100912B05 /* Assets.xcassets */; };
 		FB10A64220A1829100912B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB10A64020A1829100912B05 /* LaunchScreen.storyboard */; };
 		FB10A64A20A1894100912B05 /* MainBoardTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A64920A1894100912B05 /* MainBoardTVC.swift */; };
 		FB10A64C20A1895E00912B05 /* SubBoardTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A64B20A1895E00912B05 /* SubBoardTVC.swift */; };
 		FB10A64E20A1899900912B05 /* AdditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A64D20A1899900912B05 /* AdditionVC.swift */; };
+		FB10A65020A18B0F00912B05 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A64F20A18B0F00912B05 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FB10A63420A1829000912B05 /* Money Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Money Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB10A63720A1829000912B05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB10A63920A1829000912B05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB10A63920A1829000912B05 /* SplashPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPageVC.swift; sourceTree = "<group>"; };
 		FB10A63C20A1829000912B05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB10A63E20A1829100912B05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB10A64120A1829100912B05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -28,6 +29,7 @@
 		FB10A64920A1894100912B05 /* MainBoardTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardTVC.swift; sourceTree = "<group>"; };
 		FB10A64B20A1895E00912B05 /* SubBoardTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBoardTVC.swift; sourceTree = "<group>"; };
 		FB10A64D20A1899900912B05 /* AdditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionVC.swift; sourceTree = "<group>"; };
+		FB10A64F20A18B0F00912B05 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +63,12 @@
 			isa = PBXGroup;
 			children = (
 				FB10A63720A1829000912B05 /* AppDelegate.swift */,
-				FB10A63920A1829000912B05 /* ViewController.swift */,
+				FB10A63920A1829000912B05 /* SplashPageVC.swift */,
 				FB10A64B20A1895E00912B05 /* SubBoardTVC.swift */,
 				FB10A64920A1894100912B05 /* MainBoardTVC.swift */,
 				FB10A64D20A1899900912B05 /* AdditionVC.swift */,
 				FB10A63B20A1829000912B05 /* Main.storyboard */,
+				FB10A64F20A18B0F00912B05 /* DataStore.swift */,
 				FB10A63E20A1829100912B05 /* Assets.xcassets */,
 				FB10A64020A1829100912B05 /* LaunchScreen.storyboard */,
 				FB10A64320A1829100912B05 /* Info.plist */,
@@ -144,7 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB10A63A20A1829000912B05 /* ViewController.swift in Sources */,
+				FB10A63A20A1829000912B05 /* SplashPageVC.swift in Sources */,
+				FB10A65020A18B0F00912B05 /* DataStore.swift in Sources */,
 				FB10A63820A1829000912B05 /* AppDelegate.swift in Sources */,
 				FB10A64A20A1894100912B05 /* MainBoardTVC.swift in Sources */,
 				FB10A64C20A1895E00912B05 /* SubBoardTVC.swift in Sources */,
