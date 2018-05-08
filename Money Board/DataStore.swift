@@ -14,10 +14,21 @@ class DataStore: NSObject {
     
     private override init() {
         print("Data Object initialized")
+        
+        mainBoardImage = [#imageLiteral(resourceName: "SampleImage")]
+        mainBoardText = ["Sample"]
+        subBoardImage = ["Sample":[#imageLiteral(resourceName: "SampleImage")]]
+        
+        mainBoardImage.append(#imageLiteral(resourceName: "SampleImage"))
+        mainBoardText.append("Sample 2")
+        
+        mainBoardImage.append(#imageLiteral(resourceName: "SampleImage"))
+        mainBoardText.append("Sample 3")
+
     }
-    
+    var isJustSample = true
     var mainBoardImage: [UIImage]
     var mainBoardText: [String]
-    var subBoardImage: [String:UIImage]
+    var subBoardImage: [String:[UIImage]]
 
 }

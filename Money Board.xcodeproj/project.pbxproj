@@ -16,6 +16,7 @@
 		FB10A64C20A1895E00912B05 /* SubBoardTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A64B20A1895E00912B05 /* SubBoardTVC.swift */; };
 		FB10A64E20A1899900912B05 /* AdditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A64D20A1899900912B05 /* AdditionVC.swift */; };
 		FB10A65020A18B0F00912B05 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A64F20A18B0F00912B05 /* DataStore.swift */; };
+		FB10A65220A19BEC00912B05 /* MainBoardTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10A65120A19BEC00912B05 /* MainBoardTVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FB10A64B20A1895E00912B05 /* SubBoardTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBoardTVC.swift; sourceTree = "<group>"; };
 		FB10A64D20A1899900912B05 /* AdditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionVC.swift; sourceTree = "<group>"; };
 		FB10A64F20A18B0F00912B05 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		FB10A65120A19BEC00912B05 /* MainBoardTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardTVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +66,9 @@
 			children = (
 				FB10A63720A1829000912B05 /* AppDelegate.swift */,
 				FB10A63920A1829000912B05 /* SplashPageVC.swift */,
-				FB10A64B20A1895E00912B05 /* SubBoardTVC.swift */,
 				FB10A64920A1894100912B05 /* MainBoardTVC.swift */,
+				FB10A65120A19BEC00912B05 /* MainBoardTVCell.swift */,
+				FB10A64B20A1895E00912B05 /* SubBoardTVC.swift */,
 				FB10A64D20A1899900912B05 /* AdditionVC.swift */,
 				FB10A63B20A1829000912B05 /* Main.storyboard */,
 				FB10A64F20A18B0F00912B05 /* DataStore.swift */,
@@ -149,6 +152,7 @@
 			files = (
 				FB10A63A20A1829000912B05 /* SplashPageVC.swift in Sources */,
 				FB10A65020A18B0F00912B05 /* DataStore.swift in Sources */,
+				FB10A65220A19BEC00912B05 /* MainBoardTVCell.swift in Sources */,
 				FB10A63820A1829000912B05 /* AppDelegate.swift in Sources */,
 				FB10A64A20A1894100912B05 /* MainBoardTVC.swift in Sources */,
 				FB10A64C20A1895E00912B05 /* SubBoardTVC.swift in Sources */,

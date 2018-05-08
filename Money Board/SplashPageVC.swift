@@ -9,6 +9,8 @@
 import UIKit
 
 class SplashPageVC: UIViewController {
+    
+    let Data = DataStore.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,13 @@ class SplashPageVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func onClick(_ sender: UIButton) {
+        
+        
+        performSegue(withIdentifier: "toMainBoard", sender: self)
+    }
+    
+    
 
 
 }

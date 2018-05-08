@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,6 +27,9 @@
                                 <state key="normal" title="Money">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="onClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VOM-pD-DJ1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,34 +60,40 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="aD0-vv-j8j">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="150" id="aD0-vv-j8j" customClass="MainBoardTVCell" customModule="Money_Board" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aD0-vv-j8j" id="ueq-eh-mKL">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="149.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jz8-J3-WFG">
+                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jz8-J3-WFG">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Jz8-J3-WFG" secondAttribute="height" multiplier="5:2" id="gRw-Vc-QLw"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yr-HE-JRc">
-                                            <rect key="frame" x="16" y="55" width="343" height="39"/>
+                                            <rect key="frame" x="16" y="66" width="55" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="9Yr-HE-JRc" firstAttribute="leading" secondItem="ueq-eh-mKL" secondAttribute="leadingMargin" id="BC4-k8-3gr"/>
-                                        <constraint firstItem="Jz8-J3-WFG" firstAttribute="centerY" secondItem="9Yr-HE-JRc" secondAttribute="centerY" id="DzV-LL-cMZ"/>
-                                        <constraint firstItem="Jz8-J3-WFG" firstAttribute="centerY" secondItem="ueq-eh-mKL" secondAttribute="centerY" id="bM0-A7-shB"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="9Yr-HE-JRc" secondAttribute="bottom" constant="45" id="dmT-db-UN6"/>
-                                        <constraint firstItem="Jz8-J3-WFG" firstAttribute="leading" secondItem="ueq-eh-mKL" secondAttribute="leading" id="gts-c1-VhW"/>
-                                        <constraint firstAttribute="trailing" secondItem="Jz8-J3-WFG" secondAttribute="trailing" id="utm-eS-1p4"/>
-                                        <constraint firstItem="Jz8-J3-WFG" firstAttribute="top" secondItem="ueq-eh-mKL" secondAttribute="top" id="wif-SB-vah"/>
-                                        <constraint firstItem="Jz8-J3-WFG" firstAttribute="centerX" secondItem="9Yr-HE-JRc" secondAttribute="centerX" id="xUv-9m-Dm1"/>
+                                        <constraint firstItem="9Yr-HE-JRc" firstAttribute="leading" secondItem="ueq-eh-mKL" secondAttribute="leadingMargin" id="7O7-pe-2zO"/>
+                                        <constraint firstItem="Jz8-J3-WFG" firstAttribute="centerY" secondItem="ueq-eh-mKL" secondAttribute="centerY" id="AQH-Bo-Mc0"/>
+                                        <constraint firstItem="Jz8-J3-WFG" firstAttribute="leading" secondItem="ueq-eh-mKL" secondAttribute="leading" id="bb4-VS-r5M"/>
+                                        <constraint firstItem="9Yr-HE-JRc" firstAttribute="top" secondItem="ueq-eh-mKL" secondAttribute="topMargin" constant="55" id="c1u-JV-MOD"/>
+                                        <constraint firstItem="Jz8-J3-WFG" firstAttribute="top" secondItem="ueq-eh-mKL" secondAttribute="top" id="v7U-hG-c6w"/>
+                                        <constraint firstAttribute="trailing" secondItem="Jz8-J3-WFG" secondAttribute="trailing" id="vgh-Wx-Tog"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="MainBoardCellImage" destination="Jz8-J3-WFG" id="FUU-AJ-bPF"/>
+                                    <outlet property="MainBoardCellText" destination="9Yr-HE-JRc" id="QaZ-cs-p0M"/>
+                                    <outlet property="TableViewCell" destination="ueq-eh-mKL" id="vcc-yr-Aew"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -92,6 +102,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="tableViewUI" destination="L1U-oc-na2" id="UtK-dm-zbV"/>
                         <segue destination="tUn-LF-ytd" kind="show" identifier="toSubBoard" id="1PK-9q-46f"/>
                         <segue destination="6iw-3A-gbd" kind="show" identifier="toAddition" id="W5w-4w-9PF"/>
                     </connections>
@@ -162,7 +173,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRv-0A-edE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2892" y="826"/>
+            <point key="canvasLocation" x="2892" y="1144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cev-1W-Bm9">
