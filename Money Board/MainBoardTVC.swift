@@ -15,7 +15,7 @@ class MainBoardTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,11 +24,21 @@ class MainBoardTVC: UITableViewController {
         tableViewUI.dataSource = self
         tableViewUI.estimatedRowHeight = 150
         tableViewUI.rowHeight = UITableViewAutomaticDimension
+        
+        self.title = "Money"
+        let addButton = UIBarButtonItem(barButtonSystemItem:  .add, target: self, action: #selector(addNew))
+        
+        self.navigationItem.rightBarButtonItem = addButton
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func addNew(){
+        performSegue(withIdentifier: "toAddition", sender: self)
     }
 
     // MARK: - Table view data source
@@ -76,7 +86,7 @@ class MainBoardTVC: UITableViewController {
         performSegue(withIdentifier: "toSubBoard", sender: self)
     }
     
-    
+
     
 
     /*

@@ -9,7 +9,6 @@
 import UIKit
 
 class SubBoardTVC: UITableViewController {
-    @IBOutlet weak var navigationTitle: UINavigationItem!
     @IBOutlet var tableViewUI: UITableView!
     
     let data = DataStore.shared
@@ -23,12 +22,18 @@ class SubBoardTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        
+        
         tableViewUI.dataSource = self
         tableViewUI.estimatedRowHeight = 200
         tableViewUI.rowHeight = UITableViewAutomaticDimension
         
         
-        navigationTitle.title = data.subBoardPageTitle
+        
+        
+        
+        
+        self.title = data.subBoardPageTitle
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,9 +53,7 @@ class SubBoardTVC: UITableViewController {
         return (data.subBoardImage[data.subBoardPageTitle]?.count)!
     }
 
-    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        dismiss(animated: true)
-    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SubBoardTVCell
         
