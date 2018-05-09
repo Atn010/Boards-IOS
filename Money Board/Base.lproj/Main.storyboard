@@ -177,20 +177,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3xx-hv-ugC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="11" width="375" height="200"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="3xx-hv-ugC" secondAttribute="height" multiplier="15:8" id="2Qw-br-NrY"/>
-                                                <constraint firstAttribute="height" constant="200" id="Yea-4f-3bp"/>
-                                                <constraint firstAttribute="width" constant="375" id="xjz-Ft-XtH"/>
+                                                <constraint firstAttribute="width" constant="375" id="3aj-oR-4iL"/>
+                                                <constraint firstAttribute="width" secondItem="3xx-hv-ugC" secondAttribute="height" multiplier="15:8" id="RrO-PP-VbI"/>
+                                                <constraint firstAttribute="height" constant="200" id="neD-7U-hBj"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="leading" secondItem="L3i-xg-ilh" secondAttribute="leadingMargin" constant="-16" id="B68-97-O3N"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="3xx-hv-ugC" secondAttribute="trailing" constant="-16" id="gmM-eW-pva"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="3xx-hv-ugC" secondAttribute="bottom" constant="-11" id="hDD-i4-JQd"/>
-                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="centerY" secondItem="L3i-xg-ilh" secondAttribute="centerY" id="kLY-OS-vZn"/>
-                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="top" secondItem="L3i-xg-ilh" secondAttribute="topMargin" constant="-11" id="raR-ew-ERy"/>
+                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="leading" secondItem="L3i-xg-ilh" secondAttribute="leadingMargin" constant="-16" id="bGt-WU-aMW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="3xx-hv-ugC" secondAttribute="bottom" constant="-22" id="drn-en-mrA"/>
+                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="top" secondItem="L3i-xg-ilh" secondAttribute="topMargin" id="fiy-ll-Q8q"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3xx-hv-ugC" secondAttribute="trailing" constant="-16" id="oHP-0O-zdh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

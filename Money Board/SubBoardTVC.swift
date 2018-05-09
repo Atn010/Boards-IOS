@@ -27,6 +27,7 @@ class SubBoardTVC: UITableViewController {
         tableViewUI.estimatedRowHeight = 200
         tableViewUI.rowHeight = UITableViewAutomaticDimension
         
+        
         navigationTitle.title = data.subBoardPageTitle
     }
 
@@ -52,6 +53,8 @@ class SubBoardTVC: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SubBoardTVCell
+        
+        
 
         // Configure the cell...
         
