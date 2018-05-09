@@ -100,7 +100,6 @@ class DataStore: NSObject,NSCoding {
         print("Data Object initialized")
         
         
-
         
             mainBoardImage = [#imageLiteral(resourceName: "SampleImage")]
             mainBoardText = ["Sample"]
@@ -111,13 +110,25 @@ class DataStore: NSObject,NSCoding {
     var subBoardPageTitle = ""
     
     var newImage = false
-    var mainBoardImage: [UIImage]
-    var mainBoardText: [String]
-    var subBoardImage: [String:[UIImage]]
+    
+
+        var mainBoardImage: [UIImage]
+        var mainBoardText: [String]
+        var subBoardImage: [String:[UIImage]]
+    
+    
+
     
     
     func subBoardImageUpdater(_ subBoardKey:String, newSubBoardImage:UIImage){
-        var images = NSObject.dictionaryWithValues(forKeys: [subBoardKey]) as? [UIImage]
+        print("Moving Item to an Array")
+        //var images = NSObject.dictionaryWithValues(forKeys: [subBoardKey]) as? [UIImage]
+        var images = subBoardImage[subBoardKey]
+        
+        print("Adding new item to array")
+        images?.append(newSubBoardImage)
+        print("Updating value of subboard")
+        subBoardImage.updateValue(images!, forKey: subBoardKey)
     }
     
     func saveBoard(){

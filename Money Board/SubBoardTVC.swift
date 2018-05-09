@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubBoardTVC: UITableViewController {
+class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     @IBOutlet var tableViewUI: UITableView!
     
     let data = DataStore.shared
@@ -50,24 +50,29 @@ class SubBoardTVC: UITableViewController {
         imagePickerController.sourceType = .photoLibrary
         
         // Make sure ViewController is notified when the user picks an image.
-        imagePickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        imagePickerController.delegate = self 
+        
+        print("Showing Item")
         present(imagePickerController, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
+        print("Get Image")
         // The info dictionary may contain multiple representations of the image. You want to use the original.
         guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         
         // Set photoImageView to display the selected image.
-         data.subBoardImageUpdater(self.title, newSubBoardImage: selectedImage)
+        print("Running SubBoardImageUpdater")
+        data.subBoardImageUpdater(self.title!, newSubBoardImage: selectedImage)
         
         // Dismiss the picker.
         
-       
+        print("Updated SubBoard")
         tableViewUI.reloadData()
+        
+        print("Dismissed Image Picker")
         dismiss(animated: true, completion: nil)
     }
     
@@ -115,6 +120,10 @@ class SubBoardTVC: UITableViewController {
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("Reloading Data")
+        tableViewUI.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.
