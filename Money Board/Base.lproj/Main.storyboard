@@ -115,56 +115,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wyD-gj-Muc">
-                                <rect key="frame" x="16" y="123" width="343" height="372"/>
+                                <rect key="frame" x="36" y="122" width="303" height="220"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Kc-Lh-oF7">
-                                        <rect key="frame" x="20" y="0.0" width="303" height="169.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="170"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="3Kc-Lh-oF7" secondAttribute="height" multiplier="343:192" id="Dql-Bg-Kk1"/>
-                                        </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="bHy-jv-36h" appends="YES" id="MBT-6o-HZp"/>
                                         </connections>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Keyword of your Image" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXi-xL-mg1">
-                                        <rect key="frame" x="20" y="208" width="303" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Utv-pn-vDz"/>
-                                        </constraints>
+                                        <rect key="frame" x="67.000000000000014" y="190" width="169.33333333333337" height="30"/>
                                         <viewLayoutGuide key="safeArea" id="iXi-WN-LFD"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5X-Bq-N5Y">
-                                        <rect key="frame" x="105" y="336" width="133" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Add new Board"/>
-                                        <connections>
-                                            <action selector="addNewItem:" destination="6iw-3A-gbd" eventType="touchUpInside" id="2Gc-TW-v72"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="3Kc-Lh-oF7" firstAttribute="leading" secondItem="wyD-gj-Muc" secondAttribute="leading" constant="20" symbolic="YES" id="CKt-K9-4dB"/>
-                                    <constraint firstItem="SXi-xL-mg1" firstAttribute="leading" secondItem="wyD-gj-Muc" secondAttribute="leading" constant="20" symbolic="YES" id="XpN-i0-ECQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="3Kc-Lh-oF7" secondAttribute="trailing" constant="20" symbolic="YES" id="hcV-u5-t0S"/>
-                                    <constraint firstAttribute="trailing" secondItem="SXi-xL-mg1" secondAttribute="trailing" constant="20" symbolic="YES" id="pP9-WL-4C7"/>
-                                    <constraint firstItem="n5X-Bq-N5Y" firstAttribute="top" secondItem="SXi-xL-mg1" secondAttribute="bottom" constant="98" id="s3T-MO-sXs"/>
+                                    <constraint firstItem="SXi-xL-mg1" firstAttribute="top" secondItem="3Kc-Lh-oF7" secondAttribute="bottom" constant="20" id="RWH-2K-ppU"/>
+                                    <constraint firstItem="3Kc-Lh-oF7" firstAttribute="leading" secondItem="wyD-gj-Muc" secondAttribute="leading" id="xJJ-DO-AHl"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="oIh-Df-PfQ" firstAttribute="bottom" secondItem="wyD-gj-Muc" secondAttribute="bottom" constant="283" id="AAc-rZ-BiG"/>
-                            <constraint firstItem="wyD-gj-Muc" firstAttribute="top" secondItem="oIh-Df-PfQ" secondAttribute="top" constant="35" id="V3q-oh-ZOC"/>
-                            <constraint firstItem="wyD-gj-Muc" firstAttribute="leading" secondItem="jjJ-Ra-uQv" secondAttribute="leadingMargin" id="aKC-oy-oIh"/>
-                            <constraint firstItem="wyD-gj-Muc" firstAttribute="trailing" secondItem="jjJ-Ra-uQv" secondAttribute="trailingMargin" id="y7r-UK-xxk"/>
+                            <constraint firstItem="wyD-gj-Muc" firstAttribute="leading" secondItem="oIh-Df-PfQ" secondAttribute="leading" constant="36" id="1wH-gN-zy6"/>
+                            <constraint firstItem="wyD-gj-Muc" firstAttribute="centerX" secondItem="jjJ-Ra-uQv" secondAttribute="centerX" id="KIy-9i-wSO"/>
+                            <constraint firstItem="wyD-gj-Muc" firstAttribute="top" secondItem="oIh-Df-PfQ" secondAttribute="top" constant="34" id="eUB-eO-SQX"/>
+                            <constraint firstItem="oIh-Df-PfQ" firstAttribute="bottom" secondItem="wyD-gj-Muc" secondAttribute="bottom" constant="436" id="uey-T5-w9r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oIh-Df-PfQ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wzP-sJ-C4S"/>
                     <connections>
                         <outlet property="newImageBoard" destination="3Kc-Lh-oF7" id="G9x-lb-5dY"/>
                         <outlet property="newWord" destination="SXi-xL-mg1" id="hPL-Tt-kQL"/>
@@ -196,7 +180,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3xx-hv-ugC">
+                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="3xx-hv-ugC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="3xx-hv-ugC" secondAttribute="height" multiplier="15:8" id="ixY-GX-83e"/>
@@ -248,4 +232,7 @@
             <point key="canvasLocation" x="988" y="122.66009852216749"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SampleImage" width="2000" height="1333"/>
+    </resources>
 </document>

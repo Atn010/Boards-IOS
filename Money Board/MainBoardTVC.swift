@@ -30,6 +30,14 @@ class MainBoardTVC: UITableViewController {
         
         self.navigationItem.rightBarButtonItem = addButton
         
+        
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("Reloading Data")
+        tableViewUI.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

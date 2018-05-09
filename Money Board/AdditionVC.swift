@@ -13,17 +13,53 @@ class AdditionVC: UIViewController, UITextFieldDelegate, UIImagePickerController
     
     @IBOutlet weak var newWord: UITextField!
     
+    
+    let data = DataStore.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Add New Board"
 
         // Do any additional setup after loading the view.
+        let addButton = UIBarButtonItem(barButtonSystemItem:  .done, target: self, action: #selector(done))
+        
+        self.navigationItem.rightBarButtonItem = addButton
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @objc func done(){
+        if (!(newWord.text?.isEmpty)! && !(newImageBoard.image?.isEqual(nil))!){
+            
+            print("Add Image")
+            data.mainBoardImage.append(newImageBoard.image!)
+            
+            
+            print("Add Text")
+            data.mainBoardText.append(newWord.text!)
+            
+            print("Add AddSubBoard")
+            data.subBoardImage.updateValue([newImageBoard.image!], forKey: newWord.text!)
+            
+            
+           
+            
+            print("Dismissing Self V2")
+            self.navigationController?.popViewController(animated: true)
+        
+        }else{
+            let alert = UIAlertController(title: "Oops", message: "Please Fill the image and the Keyword", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+        }
+    }
+    
     @IBAction func clickedOnImageView(_ sender: UITapGestureRecognizer) {
         print("Clicked Image")
         
