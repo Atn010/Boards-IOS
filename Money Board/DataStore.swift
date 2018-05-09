@@ -116,6 +116,10 @@ class DataStore: NSObject,NSCoding {
     var subBoardImage: [String:[UIImage]]
     
     
+    func subBoardImageUpdater(_ subBoardKey:String, newSubBoardImage:UIImage){
+        var images = NSObject.dictionaryWithValues(forKeys: [subBoardKey]) as? [UIImage]
+    }
+    
     func saveBoard(){
         
     }

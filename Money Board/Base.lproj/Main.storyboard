@@ -126,7 +126,7 @@
                                         </connections>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Keyword of your Image" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXi-xL-mg1">
-                                        <rect key="frame" x="67.000000000000014" y="190" width="169.33333333333337" height="30"/>
+                                        <rect key="frame" x="20" y="190" width="263" height="30"/>
                                         <viewLayoutGuide key="safeArea" id="iXi-WN-LFD"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -134,6 +134,8 @@
                                     </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="SXi-xL-mg1" firstAttribute="leading" secondItem="wyD-gj-Muc" secondAttribute="leading" constant="20" symbolic="YES" id="1u8-eM-nWD"/>
+                                    <constraint firstAttribute="trailing" secondItem="SXi-xL-mg1" secondAttribute="trailing" constant="20" symbolic="YES" id="No6-zq-OMa"/>
                                     <constraint firstItem="SXi-xL-mg1" firstAttribute="top" secondItem="3Kc-Lh-oF7" secondAttribute="bottom" constant="20" id="RWH-2K-ppU"/>
                                     <constraint firstItem="3Kc-Lh-oF7" firstAttribute="leading" secondItem="wyD-gj-Muc" secondAttribute="leading" id="xJJ-DO-AHl"/>
                                 </constraints>

@@ -28,13 +28,58 @@ class SubBoardTVC: UITableViewController {
         tableViewUI.estimatedRowHeight = 200
         tableViewUI.rowHeight = UITableViewAutomaticDimension
         
+        let addButton = UIBarButtonItem(barButtonSystemItem:  .add, target: self, action: #selector(addNew))
+        //let backIcon = UIBarButtonItem(
         
+        self.navigationItem.rightBarButtonItem = addButton
         
         
         
         
         self.title = data.subBoardPageTitle
     }
+    
+    
+    @objc func addNew(){
+        
+        
+        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
+        let imagePickerController = UIImagePickerController()
+        
+        // Only allow photos to be picked, not taken.
+        imagePickerController.sourceType = .photoLibrary
+        
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        // The info dictionary may contain multiple representations of the image. You want to use the original.
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        // Set photoImageView to display the selected image.
+         data.subBoardImageUpdater(self.title, newSubBoardImage: selectedImage)
+        
+        // Dismiss the picker.
+        
+       
+        tableViewUI.reloadData()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
