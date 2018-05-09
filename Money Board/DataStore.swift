@@ -17,7 +17,7 @@ class DataStore: NSObject {
         
         mainBoardImage = [#imageLiteral(resourceName: "SampleImage")]
         mainBoardText = ["Sample"]
-        subBoardImage = ["Sample":[#imageLiteral(resourceName: "SampleImage")]]
+        subBoardImage = ["Sample":[#imageLiteral(resourceName: "SampleImage"), #imageLiteral(resourceName: "SampleImage")],"Sample 2":[#imageLiteral(resourceName: "SampleImage"), #imageLiteral(resourceName: "SampleImage"),#imageLiteral(resourceName: "SampleImage")],"Sample 3":[#imageLiteral(resourceName: "SampleImage"), #imageLiteral(resourceName: "SampleImage"),#imageLiteral(resourceName: "SampleImage"),#imageLiteral(resourceName: "SampleImage")] ]
         
         mainBoardImage.append(#imageLiteral(resourceName: "SampleImage"))
         mainBoardText.append("Sample 2")

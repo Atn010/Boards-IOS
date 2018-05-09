@@ -72,9 +72,9 @@ class MainBoardTVC: UITableViewController {
         
          print("Now Preparing For Segue For \(Data.mainBoardText[indexPath.row]) - \(indexPath.row)")
         
+        
         performSegue(withIdentifier: "toSubBoard", sender: self)
     }
-    
     
     
     

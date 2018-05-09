@@ -59,9 +59,12 @@
                                 <navigationItem title="Money" id="7ef-wy-On1">
                                     <barButtonItem key="rightBarButtonItem" title="+" style="plain" id="cSG-Lh-kW7">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="efQ-xC-Zca">
-                                            <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                            <rect key="frame" x="276" y="0.0" width="83" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
                                         </button>
                                     </barButtonItem>
                                 </navigationItem>
@@ -105,6 +108,7 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="taj-Mo-Xvz" id="Rot-rf-cAu"/>
                             <outlet property="delegate" destination="taj-Mo-Xvz" id="Urz-Bu-7cU"/>
@@ -112,8 +116,8 @@
                     </tableView>
                     <connections>
                         <outlet property="tableViewUI" destination="L1U-oc-na2" id="UtK-dm-zbV"/>
-                        <segue destination="tUn-LF-ytd" kind="showDetail" identifier="toSubBoard" id="1PK-9q-46f"/>
-                        <segue destination="6iw-3A-gbd" kind="showDetail" identifier="toAddition" id="W5w-4w-9PF"/>
+                        <segue destination="tUn-LF-ytd" kind="presentation" identifier="toSubBoard" id="1PK-9q-46f"/>
+                        <segue destination="6iw-3A-gbd" kind="presentation" identifier="toAddition" id="W5w-4w-9PF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dem-xX-o8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -165,13 +169,34 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="u1e-cC-huP">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="200" id="u1e-cC-huP" customClass="SubBoardTVCell" customModule="Money_Board" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u1e-cC-huP" id="L3i-xg-ilh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3xx-hv-ugC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="3xx-hv-ugC" secondAttribute="height" multiplier="15:8" id="2Qw-br-NrY"/>
+                                                <constraint firstAttribute="height" constant="200" id="Yea-4f-3bp"/>
+                                                <constraint firstAttribute="width" constant="375" id="xjz-Ft-XtH"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="leading" secondItem="L3i-xg-ilh" secondAttribute="leadingMargin" constant="-16" id="B68-97-O3N"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3xx-hv-ugC" secondAttribute="trailing" constant="-16" id="gmM-eW-pva"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="3xx-hv-ugC" secondAttribute="bottom" constant="-11" id="hDD-i4-JQd"/>
+                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="centerY" secondItem="L3i-xg-ilh" secondAttribute="centerY" id="kLY-OS-vZn"/>
+                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="top" secondItem="L3i-xg-ilh" secondAttribute="topMargin" constant="-11" id="raR-ew-ERy"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="SubBoardImage" destination="3xx-hv-ugC" id="8Px-JZ-NJo"/>
+                                    <outlet property="tableViewCell" destination="L3i-xg-ilh" id="CqF-V9-Vzl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -181,11 +206,12 @@
                     </tableView>
                     <connections>
                         <outlet property="navigationTitle" destination="uAC-gm-o3b" id="LzQ-N1-3wV"/>
+                        <outlet property="tableViewUI" destination="w8x-QP-Ur4" id="ASg-aG-Nm3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRv-0A-edE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2892" y="1144"/>
+            <point key="canvasLocation" x="2892" y="1141.6256157635469"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cev-1W-Bm9">

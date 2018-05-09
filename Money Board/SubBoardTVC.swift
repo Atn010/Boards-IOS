@@ -10,6 +10,9 @@ import UIKit
 
 class SubBoardTVC: UITableViewController {
     @IBOutlet weak var navigationTitle: UINavigationItem!
+    @IBOutlet var tableViewUI: UITableView!
+    
+    let data = DataStore.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,12 @@ class SubBoardTVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableViewUI.dataSource = self
+        tableViewUI.estimatedRowHeight = 200
+        tableViewUI.rowHeight = UITableViewAutomaticDimension
+        
+        navigationTitle.title = data.subBoardPageTitle
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,23 +39,31 @@ class SubBoardTVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (data.subBoardImage[data.subBoardPageTitle]?.count)!
     }
 
-    /*
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        dismiss(animated: true)
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SubBoardTVCell
 
         // Configure the cell...
+        
+        cell.imageView?.image = data.subBoardImage[data.subBoardPageTitle]?[indexPath.row]
+        
+        
+        //data.subBoardImage[data.subBoardPageTitle]
+    
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
