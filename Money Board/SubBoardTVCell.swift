@@ -9,9 +9,12 @@
 import UIKit
 
 class SubBoardTVCell: UITableViewCell {
+
+    
     @IBOutlet weak var SubBoardImage: UIImageView!
     
     @IBOutlet weak var tableViewCell: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

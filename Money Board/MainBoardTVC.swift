@@ -27,8 +27,10 @@ class MainBoardTVC: UITableViewController {
         
         self.title = "Money"
         let addButton = UIBarButtonItem(barButtonSystemItem:  .add, target: self, action: #selector(addNew))
+        //let backIcon = UIBarButtonItem(
         
         self.navigationItem.rightBarButtonItem = addButton
+        //self.navigationItem.leftBarButtonItem = backIcon
         
         
         
@@ -43,6 +45,10 @@ class MainBoardTVC: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func returnBack(){
+       self.navigationController?.popViewController(animated: true)
     }
     
     @objc func addNew(){

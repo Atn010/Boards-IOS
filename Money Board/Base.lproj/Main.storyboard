@@ -98,8 +98,8 @@
                     </tableView>
                     <connections>
                         <outlet property="tableViewUI" destination="L1U-oc-na2" id="UtK-dm-zbV"/>
-                        <segue destination="tUn-LF-ytd" kind="show" identifier="toSubBoard" id="1PK-9q-46f"/>
                         <segue destination="6iw-3A-gbd" kind="show" identifier="toAddition" id="W5w-4w-9PF"/>
+                        <segue destination="5wh-8x-GU5" kind="show" identifier="toSubBoard" id="W4t-uA-cC7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dem-xX-o8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,34 +164,42 @@
             </objects>
             <point key="canvasLocation" x="3695.1999999999998" y="122.66009852216749"/>
         </scene>
-        <!--Sub BoardTVC-->
+        <!--Table View Controller-->
         <scene sceneID="RQN-9b-rdw">
             <objects>
-                <tableViewController id="tUn-LF-ytd" customClass="SubBoardTVC" customModule="Money_Board" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="tUn-LF-ytd" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="w8x-QP-Ur4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="200" id="u1e-cC-huP" customClass="SubBoardTVCell" customModule="Money_Board" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="200" id="u1e-cC-huP">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u1e-cC-huP" id="L3i-xg-ilh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="3xx-hv-ugC">
+                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3xx-hv-ugC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="3xx-hv-ugC" secondAttribute="height" multiplier="15:8" id="ixY-GX-83e"/>
+                                                <constraint firstAttribute="width" secondItem="3xx-hv-ugC" secondAttribute="height" multiplier="15:8" id="CCO-0U-K0P"/>
                                             </constraints>
                                         </imageView>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-vy-n09">
+                                            <rect key="frame" x="166" y="90" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="centerY" secondItem="L3i-xg-ilh" secondAttribute="centerY" id="7ST-aw-yzk"/>
-                                        <constraint firstAttribute="trailing" secondItem="3xx-hv-ugC" secondAttribute="trailing" id="qLJ-M8-O4S"/>
-                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="leading" secondItem="L3i-xg-ilh" secondAttribute="leading" id="xgd-WN-cZ4"/>
-                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="top" secondItem="L3i-xg-ilh" secondAttribute="top" id="zLG-xr-AX6"/>
+                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="leading" secondItem="L3i-xg-ilh" secondAttribute="leading" id="2Mf-mH-ACP"/>
+                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="centerX" secondItem="2dk-vy-n09" secondAttribute="centerX" id="2gb-LO-Vay"/>
+                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="centerY" secondItem="2dk-vy-n09" secondAttribute="centerY" id="8c2-Lr-0hh"/>
+                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="centerY" secondItem="L3i-xg-ilh" secondAttribute="centerY" id="A7k-fc-jbe"/>
+                                        <constraint firstAttribute="trailing" secondItem="3xx-hv-ugC" secondAttribute="trailing" id="g2D-zX-DEM"/>
+                                        <constraint firstItem="3xx-hv-ugC" firstAttribute="top" secondItem="L3i-xg-ilh" secondAttribute="top" id="uU1-0K-CTU"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -211,7 +219,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRv-0A-edE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2892" y="1141.6256157635469"/>
+            <point key="canvasLocation" x="1930" y="876"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cev-1W-Bm9">
@@ -231,8 +239,65 @@
             </objects>
             <point key="canvasLocation" x="988" y="122.66009852216749"/>
         </scene>
+        <!--Sub BoardTVC-->
+        <scene sceneID="vA2-CA-T5b">
+            <objects>
+                <tableViewController id="5wh-8x-GU5" customClass="SubBoardTVC" customModule="Money_Board" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VGa-ff-Nwk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="150" id="fwU-81-q0s" customClass="SubBoardTVCell" customModule="Money_Board" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fwU-81-q0s" id="JbQ-AN-4HY">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.66666666666666"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gph-nA-VNi">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Gph-nA-VNi" secondAttribute="height" multiplier="5:2" id="L1s-30-WiN"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzc-oZ-n5m">
+                                            <rect key="frame" x="16" y="66" width="55" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fzc-oZ-n5m" firstAttribute="top" secondItem="JbQ-AN-4HY" secondAttribute="topMargin" constant="55" id="4uZ-SB-oVl"/>
+                                        <constraint firstItem="fzc-oZ-n5m" firstAttribute="leading" secondItem="JbQ-AN-4HY" secondAttribute="leadingMargin" id="7Z0-pj-hjM"/>
+                                        <constraint firstItem="Gph-nA-VNi" firstAttribute="centerY" secondItem="JbQ-AN-4HY" secondAttribute="centerY" id="85S-3s-isf"/>
+                                        <constraint firstItem="Gph-nA-VNi" firstAttribute="leading" secondItem="JbQ-AN-4HY" secondAttribute="leading" id="Kfz-3r-Fgl"/>
+                                        <constraint firstAttribute="trailing" secondItem="Gph-nA-VNi" secondAttribute="trailing" id="Pta-Sn-kJR"/>
+                                        <constraint firstItem="Gph-nA-VNi" firstAttribute="top" secondItem="JbQ-AN-4HY" secondAttribute="top" id="hJT-sv-Wvd"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fzc-oZ-n5m" secondAttribute="trailingMargin" id="jf0-Ui-VQ0"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="SubBoardImage" destination="Gph-nA-VNi" id="gf6-Ew-umB"/>
+                                    <outlet property="TableViewCell" destination="JbQ-AN-4HY" id="F0V-Qm-GhT"/>
+                                    <outlet property="tableViewCell" destination="JbQ-AN-4HY" id="eat-4f-m4k"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="5wh-8x-GU5" id="Bc7-dI-KxI"/>
+                            <outlet property="delegate" destination="5wh-8x-GU5" id="Va3-sv-lvV"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableViewUI" destination="VGa-ff-Nwk" id="wfj-Uf-1cH"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djz-y4-uJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2892" y="877"/>
+        </scene>
     </scenes>
-    <resources>
-        <image name="SampleImage" width="2000" height="1333"/>
-    </resources>
 </document>

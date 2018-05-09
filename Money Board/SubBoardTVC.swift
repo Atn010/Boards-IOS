@@ -61,7 +61,7 @@ class SubBoardTVC: UITableViewController {
 
         // Configure the cell...
         
-        cell.imageView?.image = data.subBoardImage[data.subBoardPageTitle]?[indexPath.row]
+        cell.SubBoardImage?.image = data.subBoardImage[data.subBoardPageTitle]?[indexPath.row]
         
         
         //data.subBoardImage[data.subBoardPageTitle]
