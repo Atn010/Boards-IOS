@@ -58,7 +58,7 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
         
         registerForPreviewing(with: self, sourceView: tableViewUI)
         tableViewUI.dataSource = self
-        tableViewUI.estimatedRowHeight = 75
+        tableViewUI.estimatedRowHeight = 90
         tableViewUI.rowHeight = UITableViewAutomaticDimension
         
         self.title = "Money"
@@ -75,6 +75,7 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         print("Reloading Data")
+        //Data.loadBoard()
         tableViewUI.reloadData()
     }
 
