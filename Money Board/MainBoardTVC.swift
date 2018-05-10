@@ -100,6 +100,17 @@ class MainBoardTVC: UITableViewController {
         performSegue(withIdentifier: "toSubBoard", sender: self)
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //objects.remove(at: indexPath.row)
+            Data.subBoardImage.removeValue(forKey: Data.mainBoardText[indexPath.row])
+            Data.mainBoardImage.remove(at: indexPath.row)
+            Data.mainBoardText.remove(at: indexPath.row)
+            tableViewUI.deleteRows(at: [indexPath], with: .fade)
+            Data.saveBoard()
+        }
+    }
+    
 
     
 

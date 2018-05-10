@@ -121,6 +121,14 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            data.subBoardImage[data.subBoardPageTitle]?.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            data.saveBoard()
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         print("Reloading Data")
         tableViewUI.reloadData()
