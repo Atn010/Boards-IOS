@@ -9,6 +9,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -87,6 +88,10 @@
                                     <outlet property="MainBoardCellImage" destination="Jz8-J3-WFG" id="FUU-AJ-bPF"/>
                                     <outlet property="MainBoardCellText" destination="9Yr-HE-JRc" id="QaZ-cs-p0M"/>
                                     <outlet property="TableViewCell" destination="ueq-eh-mKL" id="vcc-yr-Aew"/>
+                                    <segue destination="5wh-8x-GU5" kind="show" identifier="toSubBoard3D" id="80Q-sP-rs3">
+                                        <segue key="commit" inheritsFrom="parent" id="MDh-ik-Def"/>
+                                        <segue key="preview" inheritsFrom="commit" id="W5d-4v-lNV"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -187,7 +192,7 @@
         <!--Sub BoardTVC-->
         <scene sceneID="vA2-CA-T5b">
             <objects>
-                <tableViewController id="5wh-8x-GU5" customClass="SubBoardTVC" customModule="Money_Board" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SubBoard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5wh-8x-GU5" customClass="SubBoardTVC" customModule="Money_Board" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VGa-ff-Nwk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,4 +250,7 @@
             <point key="canvasLocation" x="2892" y="877"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="80Q-sP-rs3"/>
+    </inferredMetricsTieBreakers>
 </document>

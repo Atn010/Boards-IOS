@@ -33,7 +33,23 @@ class AdditionVC: UIViewController, UITextFieldDelegate, UIImagePickerController
     }
     
     @objc func done(){
-        if (!(newWord.text?.isEmpty)! && !(newImageBoard.image?.isEqual(nil))!){
+        if (newWord.text?.isEmpty)!{
+            
+            let alert = UIAlertController(title: "Oops", message: "Please Fill the Keyword", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+            
+        }else if newImageBoard.image == nil{
+            
+            let alert = UIAlertController(title: "Oops", message: "Please Fill the image", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+            
+        }else{
             
             if(data.newImage == false){
                 data.mainBoardText.removeAll()
@@ -60,12 +76,6 @@ class AdditionVC: UIViewController, UITextFieldDelegate, UIImagePickerController
             print("Dismissing Self V2")
             self.navigationController?.popViewController(animated: true)
         
-        }else{
-            let alert = UIAlertController(title: "Oops", message: "Please Fill the image and the Keyword", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-            self.present(alert, animated: true)
         }
     }
     

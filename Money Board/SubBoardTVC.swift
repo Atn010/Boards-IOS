@@ -101,7 +101,7 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (data.subBoardImage[data.subBoardPageTitle]?.count)!
+        return (data.subBoardImage[self.title!]?.count)!
     }
 
     
@@ -112,8 +112,7 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
 
         // Configure the cell...
         
-        cell.SubBoardImage?.image = data.subBoardImage[data.subBoardPageTitle]?[indexPath.row]
-        
+        cell.SubBoardImage?.image = data.subBoardImage[self.title!]?[indexPath.row]
         
         //data.subBoardImage[data.subBoardPageTitle]
     
@@ -123,7 +122,7 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            data.subBoardImage[data.subBoardPageTitle]?.remove(at: indexPath.row)
+            data.subBoardImage[self.title!]?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             data.saveBoard()
         }

@@ -8,7 +8,41 @@
 
 import UIKit
 
-class MainBoardTVC: UITableViewController {
+class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        //1
+        guard let indexPath = tableViewUI?.indexPathForRow(at: location) else { return nil }
+        //2
+        guard let cell = tableViewUI?.cellForRow(at: indexPath) else { return nil }
+        
+        //3
+        previewingContext.sourceRect = cell.frame
+        
+        //4
+        guard let restuarantDetailsViewController = storyboard?.instantiateViewController(withIdentifier: "SubBoard") as? SubBoardTVC else { return nil }
+        //5
+        let restaurant = Data.mainBoardText[indexPath.row]
+        
+        //6
+        restuarantDetailsViewController.title = restaurant
+        
+        //7
+        restuarantDetailsViewController.preferredContentSize = CGSize(width: 0, height: 500)
+        
+        //8
+        return restuarantDetailsViewController
+        
+        
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        
+        show(viewControllerToCommit, sender: self)
+        //performSegue(withIdentifier: "toSubBoard", sender: self)
+    }
+    
     
     @IBOutlet var tableViewUI: UITableView!
     let Data = DataStore.shared
@@ -21,6 +55,8 @@ class MainBoardTVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        registerForPreviewing(with: self, sourceView: tableViewUI)
         tableViewUI.dataSource = self
         tableViewUI.estimatedRowHeight = 150
         tableViewUI.rowHeight = UITableViewAutomaticDimension
@@ -96,8 +132,44 @@ class MainBoardTVC: UITableViewController {
         
          print("Now Preparing For Segue For \(Data.mainBoardText[indexPath.row]) - \(indexPath.row)")
         
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let controller = storyboard.instantiateViewController(withIdentifier: "SubBoardTVC")
         
-        performSegue(withIdentifier: "toSubBoard", sender: self)
+        
+
+        
+        
+        //performSegue(withIdentifier: "toSubBoard", sender: self)
+    }
+    /*
+    func previewSubBoard(key:String) -> [UIPreviewActionItem] {
+        var arrPreview = [UIPreviewActionItem]()
+        for images in Data.subBoardImage[key].unsafelyUnwrapped{
+            
+            arrPreview.append(images as! UIPreviewActionItem)
+        }
+        return arrPreview
+    }
+    
+    // Add Action of preview
+    override var previewActionItems: [UIPreviewActionItem] {
+        return self.previewSubBoard(key: Data.subBoardPageTitle)
+    }
+ */
+    func addMenuItems(menu:String ...) -> [UIPreviewActionItem] {
+        var arrPreview = [UIPreviewActionItem]()
+        for m in menu {
+            let likeAction = UIPreviewAction(title:m, style: .default) { (action, viewController) -> Void in
+                print(action.title)
+            }
+            arrPreview.append(likeAction)
+        }
+        return arrPreview
+    }
+    
+    // Add Action of preview
+    override var previewActionItems: [UIPreviewActionItem] {
+        return self.addMenuItems(menu: "Open","Bookmark")
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
