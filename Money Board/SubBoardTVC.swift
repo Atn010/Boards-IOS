@@ -67,6 +67,7 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
         print("Running SubBoardImageUpdater")
         data.subBoardImageUpdater(self.title!, newSubBoardImage: selectedImage)
         
+        data.saveBoard()
         // Dismiss the picker.
         
         print("Updated SubBoard")

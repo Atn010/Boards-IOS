@@ -35,6 +35,13 @@ class AdditionVC: UIViewController, UITextFieldDelegate, UIImagePickerController
     @objc func done(){
         if (!(newWord.text?.isEmpty)! && !(newImageBoard.image?.isEqual(nil))!){
             
+            if(data.newImage == false){
+                data.mainBoardText.removeAll()
+                data.mainBoardImage.removeAll()
+                data.subBoardImage.removeAll()
+                data.newImage = true
+            }
+            
             print("Add Image")
             data.mainBoardImage.append(newImageBoard.image!)
             
@@ -42,9 +49,11 @@ class AdditionVC: UIViewController, UITextFieldDelegate, UIImagePickerController
             print("Add Text")
             data.mainBoardText.append(newWord.text!)
             
-            print("Add AddSubBoard")
+            print("Add New SubBoard")
             data.subBoardImage.updateValue([newImageBoard.image!], forKey: newWord.text!)
             
+           
+            data.saveBoard()
             
            
             

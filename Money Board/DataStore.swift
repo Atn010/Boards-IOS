@@ -11,25 +11,31 @@ import os.log
 
 
 
-class DataStore: NSObject,NSCoding {
+class DataStore: NSObject, NSCoding{
+
+    
+    static let shared = DataStore()
+    
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("MoneyBoard")
+ 
     func encode(with aCoder: NSCoder) {
         aCoder.encode(mainBoardText, forKey: "mainText")
         aCoder.encode(mainBoardImage, forKey: "mainImages")
         aCoder.encode(subBoardImage, forKey: "subImages")
+        aCoder.encode(newImage, forKey: "newImageStatus")
+
     }
     
     required init?(coder aDecoder: NSCoder) {
         self.mainBoardText = aDecoder.decodeObject(forKey: "mainText") as! [String]
         self.mainBoardImage = aDecoder.decodeObject(forKey: "mainImages") as! [UIImage]
         self.subBoardImage = aDecoder.decodeObject(forKey: "subImages") as! [String:[UIImage]]
+        self.newImage = aDecoder.decodeBool(forKey: "newImageStatus")
     }
     
     
-    static let shared = DataStore()
- /*
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("MoneyBoard")
-
+/*
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(mainBoardText, forKey: PropertyKey.mainBoardText)
@@ -101,15 +107,19 @@ class DataStore: NSObject,NSCoding {
         
         
         
-            mainBoardImage = [#imageLiteral(resourceName: "SampleImage")]
-            mainBoardText = ["Sample"]
-            subBoardImage = ["Sample":[#imageLiteral(resourceName: "SampleImage"), #imageLiteral(resourceName: "SampleImage")]]
-
+            mainBoardImage = []
+            mainBoardText = []
+            subBoardImage = [:]
+        
+        
+        
+        
 
     }
     var subBoardPageTitle = ""
     
     var newImage = false
+    //var MoneyBoard = [MoneyBoardData]()
     
 
         var mainBoardImage: [UIImage]
@@ -130,7 +140,7 @@ class DataStore: NSObject,NSCoding {
         print("Updating value of subboard")
         subBoardImage.updateValue(images!, forKey: subBoardKey)
     }
-    
+    /*
     func saveBoard(){
         
     }
@@ -141,5 +151,79 @@ class DataStore: NSObject,NSCoding {
         subBoardImage.removeAll()
         return false
     }
-
+*/
+    
+    func saveBoard() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(DataStore(), toFile: DataStore.ArchiveURL.path)
+        
+        if isSuccessfulSave {
+            os_log("MoneyBoard successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save MoneyBoard...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    
+    
+    func loadBoard() {
+        print("Removing Old Items")
+        //let object = NSKeyedUnarchiver.unarchiveObject(withFile: MoneyBoard.ArchiveURL.path)
+        self.mainBoardImage.removeAll()
+        self.mainBoardText.removeAll()
+        self.subBoardImage.removeAll()
+        
+        print("Attempting to load Object")
+        if let responseObject = NSKeyedUnarchiver.unarchiveObject(withFile: DataStore.ArchiveURL.path) as? DataStore {
+            // You can use `responseObject` as a `Person` object here...
+            
+            print(responseObject.mainBoardText)
+            
+            mainBoardText =  responseObject.mainBoardText
+            mainBoardImage =  responseObject.mainBoardImage
+            subBoardImage =  responseObject.subBoardImage
+            newImage = responseObject.newImage
+            print("Successfully loaded")
+        }else{
+            print("Failed to Load")
+        }
+    }
+        
 }
+/*
+ class MoneyBoardData: NSObject, NSCoding{
+ struct data {
+ static let mainBoardImage = "MainBoardImage"
+ static let mainBoardText = "MainBoardText"
+ static let subBoardImage = "SubBoardImage"
+ }
+ 
+ var mainBoardImage: [UIImage] = []
+ var mainBoardText: [String] = []
+ var subBoardImage: [String:[UIImage]] = [:]
+ 
+ init(texts:[String],images:[UIImage],subBoards:[String:[UIImage]]){
+ mainBoardText = texts
+ mainBoardImage = images
+ subBoardImage = subBoards
+ }
+ 
+ func encode(with aCoder: NSCoder) {
+ aCoder.encode(mainBoardText, forKey: "mainText")
+ aCoder.encode(mainBoardImage, forKey: "mainImages")
+ aCoder.encode(subBoardImage, forKey: "subImages")
+ }
+ 
+ required init?(coder aDecoder: NSCoder) {
+ self.mainBoardText = aDecoder.decodeObject(forKey: "mainText") as! [String]
+ self.mainBoardImage = aDecoder.decodeObject(forKey: "mainImages") as! [UIImage]
+ self.subBoardImage = aDecoder.decodeObject(forKey: "subImages") as! [String:[UIImage]]
+ }
+ 
+ 
+ 
+ 
+
+ static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+ static let ArchiveURL = DocumentsDirectory.appendingPathComponent("MoneyBoard")
+ }
+*/
