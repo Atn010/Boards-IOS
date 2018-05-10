@@ -58,7 +58,7 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
         
         registerForPreviewing(with: self, sourceView: tableViewUI)
         tableViewUI.dataSource = self
-        tableViewUI.estimatedRowHeight = 150
+        tableViewUI.estimatedRowHeight = 75
         tableViewUI.rowHeight = UITableViewAutomaticDimension
         
         self.title = "Money"
