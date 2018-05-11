@@ -11,25 +11,7 @@ import os.log
 
 
 
-class DataStore: NSObject,NSCoding{
-
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(mainBoardText, forKey: "mainText")
-        aCoder.encode(mainBoardImage, forKey: "mainImages")
-        aCoder.encode(subBoardImage, forKey: "subImages")
-        aCoder.encode(newImage, forKey: "newImageStatus")
-        
-    }
-    
-    required convenience init?(coder aDecoder: NSCoder) {
-        
-        let text = aDecoder.decodeObject(forKey: "mainText") as! [String]
-        let images = aDecoder.decodeObject(forKey: "mainImages") as! [UIImage]
-        let subs = aDecoder.decodeObject(forKey: "subImages") as! [String:[UIImage]]
-        
-        self.init(mainText: text, mainImages: images, subImages: subs)
-    }
-    
+class DataStore: NSObject{
     static let shared = DataStore()
     
     
@@ -99,33 +81,21 @@ class DataStore: NSObject,NSCoding{
     */
     
     
-    
 
     
     private override init() {
         print("Data Object initialized")
+        mainBoardText = []
+        mainBoardImage = []
+        subBoardImage = [:]
         
-        
-        
-            mainBoardImage = []
-            mainBoardText = []
-            subBoardImage = [:]
         
         
         
         
 
     }
-    
-    init(mainText:[String], mainImages:[UIImage], subImages:[String:[UIImage]]) {
-        mainBoardText = mainText
-        mainBoardImage = mainImages
-        subBoardImage = subImages
-        newImage = true
-    }
     var subBoardPageTitle = ""
-    
-    var newImage = false
     //var MoneyBoard = [MoneyBoardData]()
     
 
@@ -147,27 +117,15 @@ class DataStore: NSObject,NSCoding{
         print("Updating value of subboard")
         subBoardImage.updateValue(images!, forKey: subBoardKey)
     }
-    /*
-    func saveBoard(){
-        
-    }
     
-    func loadBoard() -> Bool{
-        mainBoardImage.removeAll()
-        mainBoardText.removeAll()
-        subBoardImage.removeAll()
-        return false
-    }
-*/
-    
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("MoneyBoard")
+    //static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    //static let ArchiveURL = DocumentsDirectory.appendingPathComponent("MoneyBoard")
     
     
     func saveBoard() {
         //dataStoreObject.init(mainText: mainBoardText, mainImages: mainBoardImage, subImages: subBoardImage)
         //let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(dataStoreObject.init(mainText: mainBoardText, mainImages: mainBoardImage, subImages: subBoardImage), toFile: DataStore.ArchiveURL.path)
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(DataStore(), toFile: DataStore.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Boards.init(texts: mainBoardText, images: mainBoardImage, subBoards: subBoardImage)!, toFile: Boards.ArchiveURL.path)
         
         if isSuccessfulSave {
             os_log("MoneyBoard successfully saved.", log: OSLog.default, type: .debug)
@@ -187,10 +145,7 @@ class DataStore: NSObject,NSCoding{
         self.subBoardImage.removeAll()
         
         print("Attempting to load Object")
-        //if let responseObject = NSKeyedUnarchiver.unarchiveObject(withFile: DataStore.ArchiveURL.path) as? dataStoreObject{
-            // You can use `responseObject` as a `Person` object here...
-            if let responseObject = NSKeyedUnarchiver.unarchiveObject(withFile: DataStore.ArchiveURL.path) as? DataStore{
-            //DataStore.init(mainText: responseObject.mainBoardText, mainImages: responseObject.mainBoardImage, subImages: responseObject.subBoardImage)
+        if let responseObject = NSKeyedUnarchiver.unarchiveObject(withFile: Boards.ArchiveURL.path) as? Boards{
             print(responseObject.mainBoardText)
             
             
@@ -205,45 +160,18 @@ class DataStore: NSObject,NSCoding{
     }
         
 }
-
-class dataStoreObject:NSObject, NSCoding {
+/*
+class dataStoreObject:NSObject {
     
     var boardText:[String]
     var boardImages:[UIImage]
     var subBoardImages:[String:[UIImage]]
     var notSample:Bool
-    
-    
-    
-    init(mainText:[String], mainImages:[UIImage], subImages:[String:[UIImage]]) {
-        boardText = mainText
-        boardImages = mainImages
-        subBoardImages = subImages
-        notSample = true
-    }
-    
-    
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(boardText, forKey: "mainText")
-        aCoder.encode(boardImages, forKey: "mainImages")
-        aCoder.encode(subBoardImages, forKey: "subImages")
-        aCoder.encode(notSample, forKey: "newImageStatus")
-        
-    }
-    
-    required convenience init?(coder aDecoder: NSCoder) {
-        
-        let text = aDecoder.decodeObject(forKey: "mainText") as! [String]
-        let images = aDecoder.decodeObject(forKey: "mainImages") as! [UIImage]
-        let subs = aDecoder.decodeObject(forKey: "subImages") as! [String:[UIImage]]
-        
-        self.init(mainText: text, mainImages: images, subImages: subs)
-    }
+
     
     
 }
-
+*/
 /*
  class MoneyBoardData: NSObject, NSCoding{
  struct data {

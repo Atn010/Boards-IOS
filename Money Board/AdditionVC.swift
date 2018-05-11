@@ -50,14 +50,14 @@ class AdditionVC: UIViewController, UITextFieldDelegate, UIImagePickerController
             self.present(alert, animated: true)
             
         }else{
-            
+            /*
             if(data.newImage == false){
                 data.mainBoardText.removeAll()
                 data.mainBoardImage.removeAll()
                 data.subBoardImage.removeAll()
                 data.newImage = true
             }
-            
+            */
             print("Add Image")
             data.mainBoardImage.append(newImageBoard.image!)
             
