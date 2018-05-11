@@ -12,6 +12,7 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet var tableViewUI: UITableView!
     
     let data = DataStore.shared
+    var item = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +102,11 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (data.subBoardImage[self.title!]?.count)!
+        print("inSubBoard")
+        print(self.title!)
+        print(data.subBoardImage[self.title!]?.count)
+        print(data.subBoardImage[data.subBoardPageTitle]?.count)
+        return (data.subBoardImage[data.subBoardPageTitle]?.count)!
     }
 
     

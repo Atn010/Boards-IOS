@@ -10,8 +10,11 @@ import UIKit
 
 class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
     
+    
+    
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        
+        /*
+       let storyboard = UIStoryboard(name: "Main", bundle: nil)
         //1
         guard let indexPath = tableViewUI?.indexPathForRow(at: location) else { return nil }
         //2
@@ -21,7 +24,7 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
         previewingContext.sourceRect = cell.frame
         
         //4
-        guard let restuarantDetailsViewController = storyboard?.instantiateViewController(withIdentifier: "SubBoard") as? SubBoardTVC else { return nil }
+        guard let restuarantDetailsViewController = storyboard.instantiateViewController(withIdentifier: "SubBoard") as? SubBoardTVC else { return nil }
         //5
         let restaurant = Data.mainBoardText[indexPath.row]
         
@@ -33,6 +36,20 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
         
         //8
         return restuarantDetailsViewController
+
+        
+        */
+        guard let peek = storyboard?.instantiateViewController(withIdentifier: "SubBoard") as? SubBoardTVC else {return nil}
+        
+        if let indexPath = tableViewUI.indexPathForRow(at: location){
+            peek.title = Data.mainBoardText[indexPath.row]
+            print(peek.title!)
+            Data.subBoardPageTitle = Data.mainBoardText[indexPath.row]
+        }
+        
+        
+        
+        return peek
         
         
     }
@@ -140,7 +157,7 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
 
         
         
-        //performSegue(withIdentifier: "toSubBoard", sender: self)
+        performSegue(withIdentifier: "toSubBoard", sender: self)
     }
     /*
     func previewSubBoard(key:String) -> [UIPreviewActionItem] {
