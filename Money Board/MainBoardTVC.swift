@@ -13,32 +13,6 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
     
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        /*
-       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //1
-        guard let indexPath = tableViewUI?.indexPathForRow(at: location) else { return nil }
-        //2
-        guard let cell = tableViewUI?.cellForRow(at: indexPath) else { return nil }
-        
-        //3
-        previewingContext.sourceRect = cell.frame
-        
-        //4
-        guard let restuarantDetailsViewController = storyboard.instantiateViewController(withIdentifier: "SubBoard") as? SubBoardTVC else { return nil }
-        //5
-        let restaurant = Data.mainBoardText[indexPath.row]
-        
-        //6
-        restuarantDetailsViewController.title = restaurant
-        
-        //7
-        restuarantDetailsViewController.preferredContentSize = CGSize(width: 0, height: 500)
-        
-        //8
-        return restuarantDetailsViewController
-
-        
-        */
         guard let peek = storyboard?.instantiateViewController(withIdentifier: "SubBoard") as? SubBoardTVC else {return nil}
         
         if let indexPath = tableViewUI.indexPathForRow(at: location){
@@ -57,7 +31,6 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         
         show(viewControllerToCommit, sender: self)
-        //performSegue(withIdentifier: "toSubBoard", sender: self)
     }
     
     
@@ -66,13 +39,7 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+ 
         registerForPreviewing(with: self, sourceView: tableViewUI)
         tableViewUI.dataSource = self
         tableViewUI.estimatedRowHeight = 90
@@ -124,9 +91,6 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as! MainBoardTVCell
         
-        //cell.textLabel?.text = Data.mainBoardText[indexPath.row]
-        //cell.imageView?.image = Data.mainBoardImage[indexPath.row]
-        
         
         cell.MainBoardCellImage.image = Data.mainBoardImage[indexPath.row]
         cell.MainBoardCellText.text = Data.mainBoardText[indexPath.row]
@@ -136,44 +100,15 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /*
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let vc = segue.destination as? SubBoardTVC
-            //vc?.navigationTitle.title = Data.mainBoardText[indexPath.row]
-            
-            print("Now Preparing For Segue For \(Data.mainBoardText[indexPath.row]) - \(indexPath.row)")
-            vc?.navigationItem.title = Data.mainBoardText[indexPath.row]
-        }
-        */
         
        Data.subBoardPageTitle = Data.mainBoardText[indexPath.row]
         
          print("Now Preparing For Segue For \(Data.mainBoardText[indexPath.row]) - \(indexPath.row)")
-        
-        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //let controller = storyboard.instantiateViewController(withIdentifier: "SubBoardTVC")
-        
-        
 
         
         
         performSegue(withIdentifier: "toSubBoard", sender: self)
     }
-    /*
-    func previewSubBoard(key:String) -> [UIPreviewActionItem] {
-        var arrPreview = [UIPreviewActionItem]()
-        for images in Data.subBoardImage[key].unsafelyUnwrapped{
-            
-            arrPreview.append(images as! UIPreviewActionItem)
-        }
-        return arrPreview
-    }
-    
-    // Add Action of preview
-    override var previewActionItems: [UIPreviewActionItem] {
-        return self.previewSubBoard(key: Data.subBoardPageTitle)
-    }
- */
     func addMenuItems(menu:String ...) -> [UIPreviewActionItem] {
         var arrPreview = [UIPreviewActionItem]()
         for m in menu {

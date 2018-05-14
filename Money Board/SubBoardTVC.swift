@@ -34,9 +34,6 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
         
         self.navigationItem.rightBarButtonItem = addButton
         
-        
-        
-        
         self.title = data.subBoardPageTitle
     }
     
@@ -102,24 +99,16 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("inSubBoard")
-        print(self.title!)
-        print(data.subBoardImage[self.title!]?.count)
-        print(data.subBoardImage[data.subBoardPageTitle]?.count)
         return (data.subBoardImage[data.subBoardPageTitle]?.count)!
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SubBoardTVCell
-        
-        
 
         // Configure the cell...
         
         cell.SubBoardImage?.image = data.subBoardImage[self.title!]?[indexPath.row]
-        
-        //data.subBoardImage[data.subBoardPageTitle]
     
 
         return cell
