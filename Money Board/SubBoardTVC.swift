@@ -65,7 +65,9 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
         print("Running SubBoardImageUpdater")
         data.subBoardImageUpdater(self.title!, newSubBoardImage: selectedImage)
         
-        data.saveBoard()
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.data.saveBoard()
+        }
         // Dismiss the picker.
         
         print("Updated SubBoard")
@@ -118,7 +120,10 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
         if editingStyle == .delete {
             data.subBoardImage[self.title!]?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            data.saveBoard()
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.data.saveBoard()
+            }
         }
     }
     

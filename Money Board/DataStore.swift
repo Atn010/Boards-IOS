@@ -55,20 +55,8 @@ class DataStore: NSObject{
     
 
     func loadBoard() {
-        
-        print("Removing Old Items")
-        
-        
         print("Attempting to load Object")
-    
-
-            if let responseObject = NSKeyedUnarchiver.unarchiveObject(withFile: Boards.ArchiveURL.path) as? Boards{
-            self.mainBoardImage.removeAll()
-            self.mainBoardText.removeAll()
-            self.subBoardImage.removeAll()
-            
-            print("Showing Item")
-            //print(responseObject.mainBoardText![0])
+        if let responseObject = NSKeyedUnarchiver.unarchiveObject(withFile: Boards.ArchiveURL.path) as? Boards{
             
             print("Replacing Item")
             self.mainBoardImage = responseObject.mainBoardImage!

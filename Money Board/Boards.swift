@@ -27,9 +27,6 @@ class Boards: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        //self.mainBoardText = aDecoder.decodeObject(forKey: "mainText") as! [String]
-        //self.mainBoardImage = aDecoder.decodeObject(forKey: "mainImages") as! [UIImage]
-        //self.subBoardImage = aDecoder.decodeObject(forKey: "subImages") as! [String:[UIImage]]
         
         let mainTexts = aDecoder.decodeObject(forKey: "mainText") as! [String]
         let mainImages = aDecoder.decodeObject(forKey: "mainImages") as! [UIImage]

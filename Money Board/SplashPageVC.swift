@@ -15,7 +15,9 @@ class SplashPageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        Data.loadBoard()
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.Data.loadBoard()
+        }
     }
 
     override func didReceiveMemoryWarning() {

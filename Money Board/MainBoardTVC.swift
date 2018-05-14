@@ -132,7 +132,10 @@ class MainBoardTVC: UITableViewController, UIViewControllerPreviewingDelegate{
             Data.mainBoardImage.remove(at: indexPath.row)
             Data.mainBoardText.remove(at: indexPath.row)
             tableViewUI.deleteRows(at: [indexPath], with: .fade)
-            Data.saveBoard()
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.Data.saveBoard()
+            }
         }
     }
     
