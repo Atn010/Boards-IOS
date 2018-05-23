@@ -63,7 +63,11 @@ class SubBoardTVC: UITableViewController, UIImagePickerControllerDelegate, UINav
         
         // Set photoImageView to display the selected image.
         print("Running SubBoardImageUpdater")
-        data.subBoardImageUpdater(self.title!, newSubBoardImage: selectedImage)
+        //let finalImage = UIImageJPEGRepresentation(selectedImage, 0.25)
+        let finalImage = UIImage(data: UIImageJPEGRepresentation(selectedImage, 0.0)!)
+            //selectedImage.image?.jpeg(.lowest)
+        
+        data.subBoardImageUpdater(self.title!, newSubBoardImage: finalImage!)
         
         DispatchQueue.global(qos: .userInitiated).async {
             self.data.saveBoard()

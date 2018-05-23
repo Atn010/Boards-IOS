@@ -51,14 +51,17 @@ class AdditionVC: UIViewController, UITextFieldDelegate, UIImagePickerController
             
         }else{
             print("Add Image")
-            data.mainBoardImage.append(newImageBoard.image!)
+            let finalImage = UIImage(data: UIImageJPEGRepresentation(newImageBoard.image!, 0.0)!)
+            
+            data.mainBoardImage.append(finalImage!)
+
             
             
             print("Add Text")
             data.mainBoardText.append(newWord.text!)
             
             print("Add New SubBoard")
-            data.subBoardImage.updateValue([newImageBoard.image!], forKey: newWord.text!)
+            data.subBoardImage.updateValue([finalImage!], forKey: newWord.text!)
             
            
             DispatchQueue.global(qos: .userInitiated).async {
@@ -136,3 +139,4 @@ class AdditionVC: UIViewController, UITextFieldDelegate, UIImagePickerController
     */
 
 }
+
